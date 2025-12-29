@@ -22,12 +22,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run GitHub Stats
-        env:
-          GITHUB_TOKEN: ${{ secrets.STATS_TOKEN }}
-          GITHUB_USERNAME: ${{ secrets.STATS_USERNAME }}
-        run: |
-          python main.py --user "$GITHUB_USERNAME"
+      - name: Run GitHub Stats 
+        env: 
+          GITHUB_TOKEN: ${{ secrets.STATS_TOKEN }} 
+          GITHUB_USERNAME: ${{ secrets.STATS_USERNAME }} 
+        run: make all
 
       - name: Commit and push results
         run: |
